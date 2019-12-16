@@ -1,0 +1,58 @@
+##################### Virtual hosting ######################
+
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/reactapp.com.conf
+
+sudo nano /etc/apache2/sites-available/reactapp.com.conf
+
+<VirtualHost *:80>
+    ServerAdmin admin@reactapp.com
+    ServerName reactapp.com
+    ServerAlias www.reactapp.com
+    DocumentRoot /var/www/reactapp.com/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+sudo a2ensite dev1.mysite.com.conf
+
+sudo a2dissite 000-default.conf
+
+sudo systemctl restart apache2
+
+sudo service apache2 restart
+
+sudo nano /etc/hosts
+
+sudo a2ensite 000-default.conf
+
+sudo systemctl reload apache2
+
+apache2ctl -t
+
+##################### Virtual hosting ######################
+
+##################### Ngnix Server Command ######################
+
+sudo service status nginx
+sudo systemctl status nginx
+
+OR
+
+sudo systemctl start nginx 
+sudo systemctl stop nginx 
+sudo systemctl restart nginx
+
+OR
+
+sudo service nginx start
+sudo service nginx stop
+sudo service nginx restart
+
+OR
+
+sudo /etc/init.d/nginx start
+sudo /etc/init.d/nginx stop
+sudo /etc/init.d/nginx restart
+
+##################### Ngnix Server Command ######################
